@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+
+  <!-- Custom fonts for this template-->
+  <link th:href="@{vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link th:href="@{css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <div th:replace="~{fragments/topbar :: topbar}"></div>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">减压阀</h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">减压阀</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                    <img src="img/reducevalve.bmp" class="rounded mx-auto d-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!--减压阀-->
+            <div class="col-lg-12">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#reduceValve" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="reduceValve">
+                  <h6 class="m-0 font-weight-bold text-primary">减压阀<img src="img/reducevalve.bmp" class="rounded"></h6>
+                </a>
+                <div class="collapse show" id="reduceValve">
+                  <div class="card-body">
+                    <form id="reduceForm">
+                      <div class="form-group row">
+                        <label for="reduceC" class="col-sm-2 col-form-label">阻尼系数</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceC" name="reduceC" placeholder="5010" value="5010">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceK" class="col-sm-2 col-form-label">弹簧刚度</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceK" name="reduceK" placeholder="390700N/m" value="390700">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceF" class="col-sm-2 col-form-label">运动组件合力</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceF" name="reduceF" placeholder="3516.3N" value="3516.3">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceM" class="col-sm-2 col-form-label">运动组件质量</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceM" name="reduceM" placeholder="0.166kg" value="0.166">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceAmb" class="col-sm-2 col-form-label">膜片面积</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceAmb" name="reduceAmb" placeholder="0.00090792m^2" value="0.00090792">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceAvc" class="col-sm-2 col-form-label">阀芯面积</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceAvc" name="reduceAvc" placeholder="1.9635e-5m^2" value="1.9635e-5">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceV1" class="col-sm-2 col-form-label">高压腔体积</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceV1" name="reduceV1" placeholder="6e-6m^3" value="6e-6">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="reduceV2" class="col-sm-2 col-form-label">低压压腔体积</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="reduceV2" name="reduceV2" placeholder="6e-6m^3" value="6e-6">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                      <label for="reduceXstop" class="col-sm-2 col-form-label">阀芯最大位移</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="reduceXstop" name="reduceXstop" placeholder="0.0002m" value="0.0002">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="qin" class="col-sm-2 col-form-label">入口流量</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="qin" name="qin" placeholder="0.035kg/s" value="0.035">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="tin" class="col-sm-2 col-form-label">入口温度</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="tin" name="tin" placeholder="300K" value="300">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="pe" class="col-sm-2 col-form-label">出口压强</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="pe" name="pe" placeholder="101325Pa" value="101325">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bottleGas" class="col-sm-2 col-form-label">推挤气体</label>
+                        <div class="col-sm-10">
+                          <select id="bottleGas" name="bottleGas" class="form-control">
+                            <option value="He">氦气(He)</option>
+                            <option selected value="N2">氮气(N2)</option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- 全局参数 -->
+            <div class="col-lg-12">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#globalParas" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="globalParas">
+                  <h6 class="m-0 font-weight-bold text-primary">全局参数<img src="img/global.png" class="rounded"></h6>
+                </a>
+                <div class="collapse show" id="globalParas">
+                  <div class="card-body">
+                    <form id="globleForm">
+                      <div class="form-group row">
+                        <label for="globalParasTime" class="col-sm-2 col-form-label">计算时间</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="globalParasTime" name="globalParasTime" placeholder="1s" value="1">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="globalParasTime" class="col-sm-2 col-form-label">计算步长</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="globalParasStep" name="globalParasStep" placeholder="0.0001" value="0.001">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button type="button" class="btn btn-success btn-lg btn-block btn-user" onclick="beginSim()">开始仿真！</button>
+          </div>
+          <hr/>
+          <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-user" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</button>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <div th:replace="~{fragments/footer :: footer}"></div>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+  <div th:replace="~{fragments/logout-modal :: logout}"></div>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!--  -->
+  <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">结果</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+
+        </div>
+        <div class="modal-body">
+          <div id="container"></div>
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group btn-group-sm" role="group" aria-label="...">
+            <button type="button" id="pbHighBtn" class="btn btn-circle btn-info">高压腔压强</button>
+            <button type="button" id="pbLowBtn" class="btn btn-circle btn-info">低压腔压强</button>
+            <button type="button" id="mrHighBtn" class="btn btn-circle btn-info">高压腔流量</button>
+            <button type="button" id="mrLowBtn" class="btn btn-circle btn-info">低压腔流量</button>
+            <button type="button" id="tempHighBtn" class="btn btn-circle btn-info">高压腔温度</button>
+            <button type="button" id="tempLowBtn" class="btn btn-circle btn-info">低压腔温度</button>
+            <button type="button" id="xBtn" class="btn btn-circle btn-info">阀芯位移</button>
+            <button type="button" id="uBtn" class="btn btn-circle btn-info">阀芯速度</button>
+          </div>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{js/sb-admin-2.min.js}"></script>
+  <script th:src="@{js/serializeForm.js}"></script>
+  <script th:inline="javascript">var contextRoot = [[@{/}]];</script>
+  <script th:src="@{vendor/highcharts/highcharts.js}"></script>
+  <script th:src="@{vendor/highcharts/exporting.js}"></script>
+  <script th:src="@{vendor/highcharts/series-label.js}"></script>
+  <script th:src="@{vendor/highcharts/oldie.js}"></script>
+  <script th:src="@{vendor/highcharts/boost.js}"></script>
+  <script th:src="@{js/reducevalve.js}"></script>
+</body>
+
+</html>

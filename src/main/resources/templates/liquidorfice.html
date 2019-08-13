@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+
+  <!-- Custom fonts for this template-->
+  <link th:href="@{vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link th:href="@{css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <div th:replace="~{fragments/topbar :: topbar}"></div>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">简单液体节流孔</h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                  <h6 class="m-0 font-weight-bold text-primary">简单液体节流孔</h6>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                    <img src="img/liquidOrifice.png" class="rounded mx-auto d-block">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- 燃料路简单液体节流孔 -->
+            <div class="col-lg-6">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#liquidOrifice" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="liquidOrifice">
+                  <h6 class="m-0 font-weight-bold text-primary">简单液体节流孔测试<img src="img/liquidOrifice.bmp" class="rounded"></h6>
+                </a>
+
+                <div class="collapse show" id="liquidOrifice">
+                  <div class="card-body">
+                    <form id="fuelOrificeForm">
+                      <div class="form-group row">
+                        <label for="liquidOrificeD" class="col-sm-2 col-form-label">限流孔直径</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="liquidOrificeD" name="liquidOrificeD" placeholder="0.005m">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="liquidOrificePc" class="col-sm-2 col-form-label">压降系数</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="liquidOrificePc" name="liquidOrificePc" placeholder="0.997">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- 全局参数 -->
+            <div class="col-lg-12">
+              <!-- Collapsable Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#globalParas" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="globalParas">
+                  <h6 class="m-0 font-weight-bold text-primary">全局参数<img src="img/global.bmp" class="rounded"></h6>
+                </a>
+                <div class="collapse show" id="globalParas">
+                  <div class="card-body">
+                    <form id="globleForm">
+                      <div class="form-group row">
+                        <label for="globalParasTime" class="col-sm-2 col-form-label">计算时间</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="globalParasTime" name="globalParasTime" placeholder="1s">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="globalParasTime" class="col-sm-2 col-form-label">计算步长</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="globalParasStep" name="globalParasStep" placeholder="0.0001">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="beginSim()">开始仿真！</button>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <div th:replace="~{fragments/footer :: footer}"></div>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+  <div th:replace="~{fragments/logout-modal :: logout}"></div>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script th:src="@{js/sb-admin-2.min.js}"></script>
+  <script th:src="@{js/serializeForm.js}"></script>
+  <script th:inline="javascript">var contextRoot = [[@{/}]];</script>
+  <script th:src="@{js/gasbottle.js}"></script>
+</body>
+
+</html>
