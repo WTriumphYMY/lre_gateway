@@ -71,6 +71,14 @@
                   <div class="card-body">
                     <form id="gasBottleForm">
                       <div class="form-group row">
+                        <label for="bottleName" class="col-sm-2 col-form-label">选择已有气瓶</label>
+                        <div class="col-sm-10">
+                          <select id="bottleName" name="bottleName" class="form-control">
+                            <option selected>---选择气瓶---</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="bottleVol" class="col-sm-2 col-form-label">体积</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="bottleVol" name="bottleVol" placeholder="m^3" value="0.05">
@@ -121,6 +129,14 @@
                 <div class="collapse show" id="reduceValve">
                   <div class="card-body">
                     <form id="reduceForm">
+                      <div class="form-group row">
+                        <label for="reduceName" class="col-sm-2 col-form-label">选择已有减压阀</label>
+                        <div class="col-sm-10">
+                          <select id="reduceName" name="reduceName" class="form-control">
+                            <option selected>---选择减压阀---</option>
+                          </select>
+                        </div>
+                      </div>
                       <div class="form-group row">
                         <label for="reduceC" class="col-sm-2 col-form-label">阻尼系数</label>
                         <div class="col-sm-10">
@@ -196,6 +212,14 @@
                   <div class="card-body">
                     <form id="fuelTankForm">
                       <div class="form-group row">
+                        <label for="liquidTankName" class="col-sm-2 col-form-label">选择已有气瓶</label>
+                        <div class="col-sm-10">
+                          <select id="liquidTankName" name="liquidTankName" class="form-control">
+                            <option selected>---选择贮箱---</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="fuelTankCA" class="col-sm-2 col-form-label">流量系数</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="fuelTankCA" name="fuelTankCA" placeholder="2.663e-5" value="2.663e-5">
@@ -239,6 +263,14 @@
                 <div class="collapse show" id="oxidTank">
                   <div class="card-body">
                     <form id="oxidTankForm">
+                      <div class="form-group row">
+                        <label for="liquidTankName" class="col-sm-2 col-form-label">选择已有气瓶</label>
+                        <div class="col-sm-10">
+                          <select id="liquidTankName" name="liquidTankName" class="form-control">
+                            <option selected>---选择贮箱---</option>
+                          </select>
+                        </div>
+                      </div>
                       <div class="form-group row">
                         <label for="bottleVol" class="col-sm-2 col-form-label">流量系数</label>
                         <div class="col-sm-10">
@@ -506,6 +538,14 @@
                   <div class="card-body">
                     <form id="thrustForm">
                       <div class="form-group row">
+                        <label for="thrustChamberName" class="col-sm-2 col-form-label">选择已有推力室</label>
+                        <div class="col-sm-10">
+                          <select id="thrustChamberName" name="thrustChamberName" class="form-control">
+                            <option selected>---选择推力室---</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="thrustChamberV" class="col-sm-2 col-form-label">燃烧室容腔体积</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="thrustChamberV" name="thrustChamberV" placeholder="7.8289e-5m^3" value="7.8289e-5">
@@ -524,9 +564,9 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberArea" class="col-sm-2 col-form-label">喷喉面积</label>
+                        <label for="thrustChamberD" class="col-sm-2 col-form-label">喷管喉径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberArea" name="thrustChamberArea" placeholder="7.8489e-6m^3" value="7.8489e-6">
+                          <input type="text" class="form-control" id="thrustChamberD" name="thrustChamberD" placeholder="0.007" value="0.007">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -581,6 +621,7 @@
             </div>
           </div>
 
+          <form class="user">
           <div class="row">
             <a type="button" class="btn btn-success btn-radius btn-block btn-lg" onclick="beginSim()">开始仿真！</a>
           </div>
@@ -588,6 +629,7 @@
           <div class="row">
             <a type="button" class="btn btn-primary btn-radius btn-block btn-lg" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</a>
           </div>
+          </form>
 
         </div>
         <!-- /.container-fluid -->

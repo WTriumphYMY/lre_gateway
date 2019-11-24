@@ -1,9 +1,11 @@
 package cn.edu.nwpu.lre_gateway.controller;
 
-import cn.edu.nwpu.lre_gateway.client.LRESimClient;
-import cn.edu.nwpu.lre_gateway.dto.ConstantSystemDTO;
+import cn.edu.nwpu.lre_gateway.client.*;
+import cn.edu.nwpu.lre_gateway.domain.dto.*;
+import cn.edu.nwpu.lre_gateway.service.ConstantSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public class LreSimulationController {
 
     @Autowired
     private LRESimClient lreSimClient;
+    @Autowired
+    private ConstantSystemService constantSystemService;
 
     @PostMapping("/constDualSystemSim")
     public Map<String, List<Double>> constDualSystemSim(ConstantSystemDTO constantSystemDTO){
@@ -31,6 +35,7 @@ public class LreSimulationController {
     public Map<String, List<Double>> gasBottleSim(ConstantSystemDTO constantSystemDTO){
         return lreSimClient.gasBottleSim(constantSystemDTO);
     }
+
 
     @PostMapping("reduceValveSim")
     public Map<String, List<Double>> reduceValveSim(ConstantSystemDTO constantSystemDTO){
@@ -50,5 +55,10 @@ public class LreSimulationController {
     @PostMapping("thrustChamberSim")
     public Map<String, List<Double>> thrustChamberSim(ConstantSystemDTO constantSystemDTO){
         return lreSimClient.thrustChamberSim(constantSystemDTO);
+    }
+
+    @PostMapping("monteCarloSim")
+    public Map<String, List<Double>> monteCarloSim(MonteCarloDTO monteCarloDTO){
+        return lreSimClient.monteCarloSim(monteCarloDTO);
     }
 }

@@ -15,6 +15,11 @@ $(function () {
     $('#rhoBtn').click(function(){
         drawChart(result.t, result.rho, '气体密度');
     });
+
+    $('#bottleName').change(function () {
+        var name = $(this).children('option:selected').val();
+        setBottleValue(name);
+    });
 });
 
 function beginSim() {
@@ -38,6 +43,32 @@ function showResult(){
     $('#resultModal').modal('toggle');
     drawChart(result.t, result.p, '压强');
 };
+
+function showSaveModal() {
+    $('#saveModal').modal('toggle');
+}
+
+function saveData() {
+    var gasBottleForm = $('#gasBottleForm').serializeJson();
+    var saveNameForm = $('#saveNameForm').serializeJson();
+    var data = {};
+    $.extend(data, gasBottleForm,saveNameForm);
+
+    $.post(contextRoot+"saveGasBottle",data, function(){
+        alert("保存成功");
+    });
+}
+
+function setBottleValue(name) {
+
+    $.post(contextRoot+"getGasBottle",{bottleName:name}, function(rtn){
+        $('#bottleVol').val(rtn.bottleVol);
+        $('#bottleCA').val(rtn.bottleCA);
+        $('#bottlePressure').val(rtn.bottlePressure);
+        $('#bottleTemperature').val(rtn.bottleTemperature);
+        $('#bottleGas').val(rtn.bottleGas);
+    });
+}
 
 function drawChart(xdata, ydata, yname){
     var chart = Highcharts.chart('container', {

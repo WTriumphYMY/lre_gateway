@@ -71,40 +71,45 @@
                   <div class="card-body">
                     <form id="gasBottleForm">
                       <div class="form-group row">
-                        <label for="bottleVol" class="col-sm-2 col-form-label">体积</label>
+                        <label for="bottleVol" class="col-sm-1 col-form-label">体积</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="bottleVol" name="bottleVol" placeholder="m^3" value="0.05">
+                          <input type="text" class="form-control" id="bottleVol" name="constantSystemDTO.bottleVol" placeholder="m^3" value="0.05">
                         </div>
                         <div class="col-sm-1">
-                          <a href="javascript:void(0)" onclick='addToMonte("气瓶体积：")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("气瓶体积：","bottleVol")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
                             <i class="fas fa-plus"></i>
                           </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="bottleCA" class="col-sm-2 col-form-label">流量系数</label>
+                        <label for="bottleCA" class="col-sm-1 col-form-label">流量系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="bottleCA" name="bottleCA" placeholder="3.5e-4" value="3.5e-4">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="bottlePressure" class="col-sm-2 col-form-label">初始压强</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="bottlePressure" name="bottlePressure" placeholder="Pa" value="2.2e7">
+                          <input type="text" class="form-control" id="bottleCA" name="constantSystemDTO.bottleCA" placeholder="3.5e-4" value="3.5e-4">
                         </div>
                         <div class="col-sm-1">
-                          <a href="javascript:void(0)" onclick='addToMonte("气瓶初始压强：")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("气瓶流量系数：","bottleCA")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
                             <i class="fas fa-plus"></i>
                           </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="bottleTemperature" class="col-sm-2 col-form-label">初始温度</label>
+                        <label for="bottlePressure" class="col-sm-1 col-form-label">初始压强</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="bottleTemperature" name="bottleTemperature" placeholder="K" value="300">
+                          <input type="text" class="form-control" id="bottlePressure" name="constantSystemDTO.bottlePressure" placeholder="Pa" value="2.2e7">
                         </div>
                         <div class="col-sm-1">
-                          <a href="javascript:void(0)" onclick='addToMonte("气瓶初始温度：")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("气瓶初始压强：","bottlePressure")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="bottleTemperature" class="col-sm-1 col-form-label">初始温度</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="bottleTemperature" name="constantSystemDTO.bottleTemperature" placeholder="K" value="300">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("气瓶初始温度：","bottleTemperature")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
                             <i class="fas fa-plus"></i>
                           </a>
                         </div>
@@ -112,7 +117,7 @@
                       <div class="form-group row">
                         <label for="bottleGas" class="col-sm-2 col-form-label">推挤气体</label>
                         <div class="col-sm-10">
-                        <select id="bottleGas" name="bottleGas" class="form-control">
+                        <select id="bottleGas" name="constantSystemDTO.bottleGas" class="form-control">
                           <option value="He">氦气(He)</option>
                           <option selected value="N2">氮气(N2)</option>
                         </select>
@@ -137,57 +142,102 @@
                   <div class="card-body">
                     <form id="reduceForm">
                       <div class="form-group row">
-                        <label for="reduceC" class="col-sm-2 col-form-label">阻尼系数</label>
+                        <label for="reduceC" class="col-sm-1 col-form-label">阻尼系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceC" name="reduceC" placeholder="5010" value="5010">
+                          <input type="text" class="form-control" id="reduceC" name="constantSystemDTO.reduceC" placeholder="5010" value="5010">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀阻尼系数：","reduceC")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceK" class="col-sm-2 col-form-label">弹簧刚度</label>
+                        <label for="reduceK" class="col-sm-1 col-form-label">弹簧刚度</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceK" name="reduceK" placeholder="390700N/m" value="390700">
+                          <input type="text" class="form-control" id="reduceK" name="constantSystemDTO.reduceK" placeholder="390700N/m" value="390700">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀弹簧刚度：","reduceK")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceF" class="col-sm-2 col-form-label">运动组件合力</label>
+                        <label for="reduceF" class="col-sm-1 col-form-label">运动组件合力</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceF" name="reduceF" placeholder="3516.3N" value="3516.3">
+                          <input type="text" class="form-control" id="reduceF" name="constantSystemDTO.reduceF" placeholder="3516.3N" value="3516.3">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀运动组件合力：","reduceF")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceM" class="col-sm-2 col-form-label">运动组件质量</label>
+                        <label for="reduceM" class="col-sm-1 col-form-label">运动组件质量</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceM" name="reduceM" placeholder="0.166kg" value="0.166">
+                          <input type="text" class="form-control" id="reduceM" name="constantSystemDTO.reduceM" placeholder="0.166kg" value="0.166">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀运动组件质量：","reduceM")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceAmb" class="col-sm-2 col-form-label">膜片面积</label>
+                        <label for="reduceAmb" class="col-sm-1 col-form-label">膜片面积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceAmb" name="reduceAmb" placeholder="0.00090792m^2" value="0.00090792">
+                          <input type="text" class="form-control" id="reduceAmb" name="constantSystemDTO.reduceAmb" placeholder="0.00090792m^2" value="0.00090792">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀膜片面积：","reduceAmb")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceAvc" class="col-sm-2 col-form-label">阀芯面积</label>
+                        <label for="reduceAvc" class="col-sm-1 col-form-label">阀芯面积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceAvc" name="reduceAvc" placeholder="1.9635e-5m^2" value="1.9635e-5">
+                          <input type="text" class="form-control" id="reduceAvc" name="constantSystemDTO.reduceAvc" placeholder="1.9635e-5m^2" value="1.9635e-5">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀阀芯面积：","reduceAvc")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceV1" class="col-sm-2 col-form-label">高压腔体积</label>
+                        <label for="reduceV1" class="col-sm-1 col-form-label">高压腔体积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceV1" name="reduceV1" placeholder="6e-6m^3" value="6e-6">
+                          <input type="text" class="form-control" id="reduceV1" name="constantSystemDTO.reduceV1" placeholder="6e-6m^3" value="6e-6">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀高压腔体积：","reduceV1")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceV2" class="col-sm-2 col-form-label">低压压腔体积</label>
+                        <label for="reduceV2" class="col-sm-1 col-form-label">低压压腔体积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceV2" name="reduceV2" placeholder="6e-6m^3" value="6e-6">
+                          <input type="text" class="form-control" id="reduceV2" name="constantSystemDTO.reduceV2" placeholder="6e-6m^3" value="6e-6">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀低压腔体积：","reduceV2")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="reduceXstop" class="col-sm-2 col-form-label">阀芯最大位移</label>
+                        <label for="reduceXstop" class="col-sm-1 col-form-label">阀芯最大位移</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="reduceXstop" name="reduceXstop" placeholder="0.0002m" value="0.0002">
+                          <input type="text" class="form-control" id="reduceXstop" name="constantSystemDTO.reduceXstop" placeholder="0.0002m" value="0.0002">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("减压阀阀芯最大位移：","reduceXstop")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -211,27 +261,42 @@
                   <div class="card-body">
                     <form id="fuelTankForm">
                       <div class="form-group row">
-                        <label for="fuelTankCA" class="col-sm-2 col-form-label">流量系数</label>
+                        <label for="fuelTankCA" class="col-sm-1 col-form-label">流量系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelTankCA" name="fuelTankCA" placeholder="2.663e-5" value="2.663e-5">
+                          <input type="text" class="form-control" id="fuelTankCA" name="constantSystemDTO.fuelTankCA" placeholder="2.663e-5" value="2.663e-5">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料贮箱流量系数：","fuelTankCA")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelTankV0" class="col-sm-2 col-form-label">气腔初始体积</label>
+                        <label for="fuelTankV0" class="col-sm-1 col-form-label">气腔初始体积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelTankV0" name="fuelTankV0" placeholder="0.00011m^3" value="0.00011">
+                          <input type="text" class="form-control" id="fuelTankV0" name="constantSystemDTO.fuelTankV0" placeholder="0.00011m^3" value="0.00011">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料贮箱气腔初始体积：","fuelTankV0")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelTankPressure" class="col-sm-2 col-form-label">初始压强</label>
+                        <label for="fuelTankPressure" class="col-sm-1 col-form-label">初始压强</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelTankPressure" name="fuelTankPressure" placeholder="101325Pa" value="101325.0">
+                          <input type="text" class="form-control" id="fuelTankPressure" name="constantSystemDTO.fuelTankPressure" placeholder="101325Pa" value="101325.0">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料贮箱初始压强：","fuelTankPressure")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="fuelTankFuel" class="col-sm-2 col-form-label">燃料</label>
                         <div class="col-sm-10">
-                        <select id="fuelTankFuel" name="fuelTankFuel" class="form-control">
+                        <select id="fuelTankFuel" name="constantSystemDTO.fuelTankFuel" class="form-control">
                           <option selected value="MMH">甲基肼(MMH)</option>
                           <option value="LH2">液氢(LH2)</option>
                         </select>
@@ -255,27 +320,42 @@
                   <div class="card-body">
                     <form id="oxidTankForm">
                       <div class="form-group row">
-                        <label for="bottleVol" class="col-sm-2 col-form-label">流量系数</label>
+                        <label for="bottleVol" class="col-sm-1 col-form-label">流量系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidTankCA" name="oxidTankCA" placeholder="2.663e-5" value="2.663e-5">
+                          <input type="text" class="form-control" id="oxidTankCA" name="constantSystemDTO.oxidTankCA" placeholder="2.663e-5" value="2.663e-5">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂贮箱流量系数：","oxidTankCA")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="bottleCA" class="col-sm-2 col-form-label">气腔初始体积</label>
+                        <label for="bottleCA" class="col-sm-1 col-form-label">气腔初始体积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidTankV0" name="oxidTankV0" placeholder="0.00011m^3" value="0.00011">
+                          <input type="text" class="form-control" id="oxidTankV0" name="constantSystemDTO.oxidTankV0" placeholder="0.00011m^3" value="0.00011">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂气腔初始体积：","oxidTankV0")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidTankPressure" class="col-sm-2 col-form-label">初始压强</label>
+                        <label for="oxidTankPressure" class="col-sm-1 col-form-label">初始压强</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidTankPressure" name="oxidTankPressure" placeholder="101325Pa" value="101325.0">
+                          <input type="text" class="form-control" id="oxidTankPressure" name="constantSystemDTO.oxidTankPressure" placeholder="101325Pa" value="101325.0">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂初始压强：","oxidTankPressure")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="oxidTankFuel" class="col-sm-2 col-form-label">氧化剂</label>
                         <div class="col-sm-10">
-                        <select id="oxidTankFuel" name="oxidTankFuel" class="form-control">
+                        <select id="oxidTankFuel" name="constantSystemDTO.oxidTankFuel" class="form-control">
                           <option selected value="LO2">液氧(LO2)</option>
                           <option value="LN2O4">四氧化氮(LN2O4)</option>
                         </select>
@@ -302,63 +382,113 @@
                   <div class="card-body">
                     <form id="fuelSolenoidForm">
                       <div class="form-group row">
-                        <label for="fuelSolenoidR" class="col-sm-2 col-form-label">线圈电阻</label>
+                        <label for="fuelSolenoidR" class="col-sm-1 col-form-label">线圈电阻</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidR" name="fuelSolenoidR" placeholder="23.3Ω" value="23.3">
+                          <input type="text" class="form-control" id="fuelSolenoidR" name="constantSystemDTO.fuelSolenoidR" placeholder="23.3Ω" value="23.3">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀线圈电阻：","fuelSolenoidR")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidN" class="col-sm-2 col-form-label">线圈匝数</label>
+                        <label for="fuelSolenoidN" class="col-sm-1 col-form-label">线圈匝数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidN" name="fuelSolenoidN" placeholder="1700" value="1700">
+                          <input type="text" class="form-control" id="fuelSolenoidN" name="constantSystemDTO.fuelSolenoidN" placeholder="1700" value="1700">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀线圈匝数：","fuelSolenoidN")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidU" class="col-sm-2 col-form-label">电压</label>
+                        <label for="fuelSolenoidU" class="col-sm-1 col-form-label">电压</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidU" name="fuelSolenoidU" placeholder="28V" value="28">
+                          <input type="text" class="form-control" id="fuelSolenoidU" name="constantSystemDTO.fuelSolenoidU" placeholder="28V" value="28">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀电压：","fuelSolenoidU")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidSigma" class="col-sm-2 col-form-label">漏磁系数</label>
+                        <label for="fuelSolenoidSigma" class="col-sm-1 col-form-label">漏磁系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidSigma" name="fuelSolenoidSigma" placeholder="1.3" value="1.3">
+                          <input type="text" class="form-control" id="fuelSolenoidSigma" name="constantSystemDTO.fuelSolenoidSigma" placeholder="1.3" value="1.3">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀漏磁系数：","fuelSolenoidSigma")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidSm" class="col-sm-2 col-form-label">磁性材料截面积</label>
+                        <label for="fuelSolenoidSm" class="col-sm-1 col-form-label">磁性材料截面积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidSm" name="fuelSolenoidSm" placeholder="0.0002m^2" value="0.0002">
+                          <input type="text" class="form-control" id="fuelSolenoidSm" name="constantSystemDTO.fuelSolenoidSm" placeholder="0.0002m^2" value="0.0002">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀磁性材料截面积：","fuelSolenoidSm")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidK" class="col-sm-2 col-form-label">弹簧刚度</label>
+                        <label for="fuelSolenoidK" class="col-sm-1 col-form-label">弹簧刚度</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidK" name="fuelSolenoidK" placeholder="2800N/m" value="2800">
+                          <input type="text" class="form-control" id="fuelSolenoidK" name="constantSystemDTO.fuelSolenoidK" placeholder="2800N/m" value="2800">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀弹簧刚度：","fuelSolenoidK")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidM" class="col-sm-2 col-form-label">运动部分质量</label>
+                        <label for="fuelSolenoidM" class="col-sm-1 col-form-label">运动部分质量</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidM" name="fuelSolenoidM" placeholder="0.021kg" value="0.021">
+                          <input type="text" class="form-control" id="fuelSolenoidM" name="constantSystemDTO.fuelSolenoidM" placeholder="0.021kg" value="0.021">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀运动部分质量：","fuelSolenoidM")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidF" class="col-sm-2 col-form-label">弹簧预紧力</label>
+                        <label for="fuelSolenoidF" class="col-sm-1 col-form-label">弹簧预紧力</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidF" name="fuelSolenoidF" placeholder="8.68N" value="8.68">
+                          <input type="text" class="form-control" id="fuelSolenoidF" name="constantSystemDTO.fuelSolenoidF" placeholder="8.68N" value="8.68">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀弹簧预紧力：","fuelSolenoidF")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidD" class="col-sm-2 col-form-label">阀芯直径</label>
+                        <label for="fuelSolenoidD" class="col-sm-1 col-form-label">阀芯直径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidD" name="fuelSolenoidD" placeholder="0.035m" value="0.0035">
+                          <input type="text" class="form-control" id="fuelSolenoidD" name="constantSystemDTO.fuelSolenoidD" placeholder="0.035m" value="0.0035">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀阀芯直径：","fuelSolenoidD")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelSolenoidXstop" class="col-sm-2 col-form-label">阀芯最大位移</label>
+                        <label for="fuelSolenoidXstop" class="col-sm-1 col-form-label">阀芯最大位移</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelSolenoidXstop" name="fuelSolenoidXstop" placeholder="0.0004m" value="0.0004">
+                          <input type="text" class="form-control" id="fuelSolenoidXstop" name="constantSystemDTO.fuelSolenoidXstop" placeholder="0.0004m" value="0.0004">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料电磁阀阀芯最大位移：","fuelSolenoidXstop")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -379,63 +509,113 @@
                   <div class="card-body">
                     <form id="oxidSolenoidForm">
                       <div class="form-group row">
-                        <label for="oxidSolenoidR" class="col-sm-2 col-form-label">线圈电阻</label>
+                        <label for="oxidSolenoidR" class="col-sm-1 col-form-label">线圈电阻</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidR" name="oxidSolenoidR" placeholder="23.3Ω" value="23.3">
+                          <input type="text" class="form-control" id="oxidSolenoidR" name="constantSystemDTO.oxidSolenoidR" placeholder="23.3Ω" value="23.3">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀线圈电阻：","oxidSolenoidR")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidN" class="col-sm-2 col-form-label">线圈匝数</label>
+                        <label for="oxidSolenoidN" class="col-sm-1 col-form-label">线圈匝数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidN" name="oxidSolenoidN" placeholder="1700" value="1700">
+                          <input type="text" class="form-control" id="oxidSolenoidN" name="constantSystemDTO.oxidSolenoidN" placeholder="1700" value="1700">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀线圈匝数：","oxidSolenoidN")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidU" class="col-sm-2 col-form-label">电压</label>
+                        <label for="oxidSolenoidU" class="col-sm-1 col-form-label">电压</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidU" name="oxidSolenoidU" placeholder="28V" value="28">
+                          <input type="text" class="form-control" id="oxidSolenoidU" name="constantSystemDTO.oxidSolenoidU" placeholder="28V" value="28">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀电压：","oxidSolenoidU")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidSigma" class="col-sm-2 col-form-label">漏磁系数</label>
+                        <label for="oxidSolenoidSigma" class="col-sm-1 col-form-label">漏磁系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidSigma" name="oxidSolenoidSigma" placeholder="1.3" value="1.3">
+                          <input type="text" class="form-control" id="oxidSolenoidSigma" name="constantSystemDTO.oxidSolenoidSigma" placeholder="1.3" value="1.3">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀漏磁系数：","oxidSolenoidSigma")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidSm" class="col-sm-2 col-form-label">磁性材料截面积</label>
+                        <label for="oxidSolenoidSm" class="col-sm-1 col-form-label">磁性材料截面积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidSm" name="oxidSolenoidSm" placeholder="0.0002m^2" value="0.0002">
+                          <input type="text" class="form-control" id="oxidSolenoidSm" name="constantSystemDTO.oxidSolenoidSm" placeholder="0.0002m^2" value="0.0002">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀磁性材料截面积数：","oxidSolenoidSm")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidK" class="col-sm-2 col-form-label">弹簧刚度</label>
+                        <label for="oxidSolenoidK" class="col-sm-1 col-form-label">弹簧刚度</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidK" name="oxidSolenoidK" placeholder="2800N/m" value="2800">
+                          <input type="text" class="form-control" id="oxidSolenoidK" name="constantSystemDTO.oxidSolenoidK" placeholder="2800N/m" value="2800">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀弹簧刚度：","oxidSolenoidK")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidM" class="col-sm-2 col-form-label">运动部分质量</label>
+                        <label for="oxidSolenoidM" class="col-sm-1 col-form-label">运动部分质量</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidM" name="oxidSolenoidM" placeholder="0.021kg" value="0.021">
+                          <input type="text" class="form-control" id="oxidSolenoidM" name="constantSystemDTO.oxidSolenoidM" placeholder="0.021kg" value="0.021">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀运动部分质量：","oxidSolenoidM")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidF" class="col-sm-2 col-form-label">弹簧预紧力</label>
+                        <label for="oxidSolenoidF" class="col-sm-1 col-form-label">弹簧预紧力</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidF" name="oxidSolenoidF" placeholder="8.68N" value="8.68">
+                          <input type="text" class="form-control" id="oxidSolenoidF" name="constantSystemDTO.oxidSolenoidF" placeholder="8.68N" value="8.68">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀弹簧预紧力：","oxidSolenoidF")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidD" class="col-sm-2 col-form-label">阀芯直径</label>
+                        <label for="oxidSolenoidD" class="col-sm-1 col-form-label">阀芯直径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidD" name="oxidSolenoidD" placeholder="0.0035m" value="0.0035">
+                          <input type="text" class="form-control" id="oxidSolenoidD" name="constantSystemDTO.oxidSolenoidD" placeholder="0.0035m" value="0.0035">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀阀芯直径：","oxidSolenoidD")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidSolenoidXstop" class="col-sm-2 col-form-label">阀芯最大位移</label>
+                        <label for="oxidSolenoidXstop" class="col-sm-1 col-form-label">阀芯最大位移</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidSolenoidXstop" name="oxidSolenoidXstop" placeholder="0.0004m" value="0.0004">
+                          <input type="text" class="form-control" id="oxidSolenoidXstop" name="constantSystemDTO.oxidSolenoidXstop" placeholder="0.0004m" value="0.0004">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂电磁阀阀芯最大位移：","oxidSolenoidXstop")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -460,15 +640,25 @@
                   <div class="card-body">
                     <form id="fuelOrificeForm">
                       <div class="form-group row">
-                        <label for="fuelLiquidOrificeD" class="col-sm-2 col-form-label">限流孔直径</label>
+                        <label for="fuelLiquidOrificeD" class="col-sm-1 col-form-label">限流孔直径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelLiquidOrificeD" name="fuelLiquidOrificeD" placeholder="0.005m" value="0.005">
+                          <input type="text" class="form-control" id="fuelLiquidOrificeD" name="constantSystemDTO.fuelLiquidOrificeD" placeholder="0.005m" value="0.005">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料节流孔直径：","fuelLiquidOrificeD")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="fuelLiquidOrificePc" class="col-sm-2 col-form-label">压降系数</label>
+                        <label for="fuelLiquidOrificePc" class="col-sm-1 col-form-label">压降系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="fuelLiquidOrificePc" name="fuelLiquidOrificePc" placeholder="0.997" value="0.997">
+                          <input type="text" class="form-control" id="fuelLiquidOrificePc" name="constantSystemDTO.fuelLiquidOrificePc" placeholder="0.997" value="0.997">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃料节流孔压降系数：","fuelLiquidOrificePc")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -489,15 +679,25 @@
                   <div class="card-body">
                     <form id="oxidOrificeForm">
                       <div class="form-group row">
-                        <label for="oxidLiquidOrificeD" class="col-sm-2 col-form-label">限流孔直径</label>
+                        <label for="oxidLiquidOrificeD" class="col-sm-1 col-form-label">限流孔直径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidLiquidOrificeD" name="oxidLiquidOrificeD" placeholder="0.005m" value="0.005">
+                          <input type="text" class="form-control" id="oxidLiquidOrificeD" name="constantSystemDTO.oxidLiquidOrificeD" placeholder="0.005m" value="0.005">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂节流孔直径：","oxidLiquidOrificeD")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="oxidLiquidOrificePc" class="col-sm-2 col-form-label">压降系数</label>
+                        <label for="oxidLiquidOrificePc" class="col-sm-1 col-form-label">压降系数</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="oxidLiquidOrificePc" name="oxidLiquidOrificePc" placeholder="0.997" value="0.997">
+                          <input type="text" class="form-control" id="oxidLiquidOrificePc" name="constantSystemDTO.oxidLiquidOrificePc" placeholder="0.997" value="0.997">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("氧化剂节流孔压降系数：","oxidLiquidOrificePc")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -521,39 +721,69 @@
                   <div class="card-body">
                     <form id="thrustForm">
                       <div class="form-group row">
-                        <label for="thrustChamberV" class="col-sm-2 col-form-label">燃烧室容腔体积</label>
+                        <label for="thrustChamberV" class="col-sm-1 col-form-label">燃烧室容腔体积</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberV" name="thrustChamberV" placeholder="7.8289e-5m^3" value="7.8289e-5">
+                          <input type="text" class="form-control" id="thrustChamberV" name="constantSystemDTO.thrustChamberV" placeholder="7.8289e-5m^3" value="7.8289e-5">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室容腔体积：","thrustChamberV")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberTauc" class="col-sm-2 col-form-label">燃烧时滞</label>
+                        <label for="thrustChamberTauc" class="col-sm-1 col-form-label">燃烧时滞</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberTauc" name="thrustChamberTauc" placeholder="0.01s" value="0.0">
+                          <input type="text" class="form-control" id="thrustChamberTauc" name="constantSystemDTO.thrustChamberTauc" placeholder="0.01s" value="0.0">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室燃烧时滞：","thrustChamberTauc")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberK" class="col-sm-2 col-form-label">燃气比热比</label>
+                        <label for="thrustChamberK" class="col-sm-1 col-form-label">燃气比热比</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberK" name="thrustChamberK" placeholder="1.25" value="1.25">
+                          <input type="text" class="form-control" id="thrustChamberK" name="constantSystemDTO.thrustChamberK" placeholder="1.25" value="1.25">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室燃气比热比：","thrustChamberK")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberArea" class="col-sm-2 col-form-label">喷喉面积</label>
+                        <label for="thrustChamberD" class="col-sm-1 col-form-label">喷管喉径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberArea" name="thrustChamberArea" placeholder="7.8489e-6m^3" value="7.8489e-6">
+                          <input type="text" class="form-control" id="thrustChamberD" name="constantSystemDTO.thrustChamberD" placeholder="0.007m" value="0.007">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室喷管喉径：","thrustChamberD")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberPa" class="col-sm-2 col-form-label">环境压强</label>
+                        <label for="thrustChamberPa" class="col-sm-1 col-form-label">环境压强</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberPa" name="thrustChamberPa" placeholder="101325.0Pa" value="101325.0">
+                          <input type="text" class="form-control" id="thrustChamberPa" name="constantSystemDTO.thrustChamberPa" placeholder="101325.0Pa" value="101325.0">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室环境压强：","thrustChamberPa")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberEps" class="col-sm-2 col-form-label">喷管膨胀比</label>
+                        <label for="thrustChamberEps" class="col-sm-1 col-form-label">喷管膨胀比</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberEps" name="thrustChamberEps" placeholder="25.72" value="25.72">
+                          <input type="text" class="form-control" id="thrustChamberEps" name="constantSystemDTO.thrustChamberEps" placeholder="25.72" value="25.72">
+                        </div>
+                        <div class="col-sm-1">
+                          <a href="javascript:void(0)" onclick='addNewDisPara("燃烧室喷管膨胀比：","thrustChamberEps")' class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="添加为散布参数">
+                            <i class="fas fa-plus"></i>
+                          </a>
                         </div>
                       </div>
                     </form>
@@ -580,13 +810,13 @@
                       <div class="form-group row">
                         <label for="globalParasTime" class="col-sm-2 col-form-label">计算时间</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="globalParasTime" name="globalParasTime" placeholder="1s" value="1">
+                          <input type="text" class="form-control" id="globalParasTime" name="constantSystemDTO.globalParasTime" placeholder="1s" value="1">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="globalParasTime" class="col-sm-2 col-form-label">计算步长</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="globalParasStep" name="globalParasStep" placeholder="0.0001" value="0.0001">
+                          <input type="text" class="form-control" id="globalParasStep" name="constantSystemDTO.globalParasStep" placeholder="0.0001" value="0.0001">
                         </div>
                       </div>
                     </form>
@@ -597,7 +827,7 @@
           </div>
 
           <div class="row">
-            <!-- 全局参数 -->
+            <!-- 散布参数 -->
             <div class="col-lg-12">
               <!-- Collapsable Card Example -->
               <div class="card shadow mb-4">
@@ -610,40 +840,10 @@
                   <div class="card-body">
                     <form id="monteForm">
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">气瓶体积：</label>
-
-                        <div class="input-group mb-3 col-sm-3">
-                          <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">选择分布方式</button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0)" onclick='showDistribution("正态分布")'>正态分布</a>
-                              <a class="dropdown-item" href="javascript:void(0)" onclick='showDistribution("均匀分布")'>均匀分布</a>
-                              <a class="dropdown-item" href="javascript:void(0)" onclick='showDistribution("指数分布")'>指数分布</a>
-                            </div>
-                          </div>
-                          <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <label for="globalParasTime" class="col-sm-2 col-form-label">仿真次数</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="calculateTimes" name="calculateTimes" placeholder="10" value="10">
                         </div>
-
-                        <div class="input-group mb-3 col-sm-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">均值</span>
-                          </div>
-                          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-
-                        <div class="input-group mb-3 col-sm-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">方差</span>
-                          </div>
-                          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-
-                        <div class="col-sm-1">
-                          <a href="javascript:void(0)" onclick="deleteMonte()" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="移除">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </div>
-
                       </div>
                     </form>
                   </div>
@@ -651,15 +851,15 @@
               </div>
             </div>
           </div>
-
+<form class="user">
           <div class="row">
-            <a type="button" class="btn btn-success btn-radius btn-block btn-lg" onclick="beginSim()">开始仿真！</a>
+            <a class="btn btn-success btn-user btn-block" onclick="beginSim()" href="javascript:void(0)">开始仿真！</a>
           </div>
           <hr/>
           <div class="row">
-            <a type="button" class="btn btn-primary btn-radius btn-block btn-lg" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</a>
+            <a href="javascript:void(0)" class="btn btn-primary btn-user btn-block" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</a>
           </div>
-
+</form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -680,7 +880,7 @@
 
   <!-- 展示结果modal -->
   <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">结果</h4>
@@ -689,8 +889,48 @@
         </div>
         <div class="modal-body">
           <div id="container"></div>
+          <div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">性能参数</th>
+                <th scope="col">均值</th>
+                <th scope="col">方差</th>
+                <th scope="col">置信区间</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">推力(kN)</th>
+                <td id="fAVe">1000</td>
+                <td id="fVar">100</td>
+                <td id="fCo">(900,1100)</td>
+              </tr>
+              <tr>
+                <th scope="row">比冲(m/s)</th>
+                <td id="ispAVe">2000</td>
+                <td id="ispVar">200</td>
+                <td id="ispCo">(1800,2200)</td>
+              </tr>
+              <tr>
+                <th scope="row">压强(MPa)</th>
+                <td id="pAVe">10</td>
+                <td id="pVar">1</td>
+                <td id="pCo">(9,11)</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="modal-footer">
+          <div class="btn-group">
+            <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">查看箱线图</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="javascript:void(0)" onclick="showBoxChart('f')">推力箱线图</a>
+              <a class="dropdown-item" href="javascript:void(0)" onclick="showBoxChart('isp')">比冲箱线图</a>
+              <a class="dropdown-item" href="javascript:void(0)" onclick="showBoxChart('p')">压强箱线图</a>
+            </div>
+          </div>
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               选择组件
@@ -730,6 +970,7 @@
   <script th:src="@{js/serializeForm.js}"></script>
   <script th:inline="javascript">var contextRoot = [[@{/}]];</script>
   <script th:src="@{vendor/highcharts/highcharts.js}"></script>
+  <script th:src="@{vendor/highcharts/highcharts-more.js}"></script>
   <script th:src="@{vendor/highcharts/exporting.js}"></script>
   <script th:src="@{vendor/highcharts/series-label.js}"></script>
   <script th:src="@{vendor/highcharts/oldie.js}"></script>

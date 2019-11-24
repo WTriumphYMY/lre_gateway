@@ -70,6 +70,16 @@
                   <div class="card-body">
                     <form id="thrustForm">
                       <div class="form-group row">
+                        <label for="thrustChamberName" class="col-sm-2 col-form-label">选择已有推力室</label>
+                        <div class="col-sm-10">
+                          <select id="thrustChamberName" name="thrustChamberName" class="form-control">
+                            <option selected>---选择推力室---</option>
+                            <option th:each="thrustChamber:${thrustChambers}" th:value="${thrustChamber.componentName}" th:text="${thrustChamber.componentName}"></option>
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="thrustChamberV" class="col-sm-2 col-form-label">燃烧室容腔体积</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="thrustChamberV" name="thrustChamberV" placeholder="7.8389e-6m^3" value="7.8389e-6">
@@ -88,9 +98,9 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="thrustChamberArea" class="col-sm-2 col-form-label">喷喉面积</label>
+                        <label for="thrustChamberD" class="col-sm-2 col-form-label">喷管喉径</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="thrustChamberArea" name="thrustChamberArea" placeholder="3.848e-5m^3" value="3.848e-5">
+                          <input type="text" class="form-control" id="thrustChamberD" name="thrustChamberD" placeholder="0.007m" value="0.007">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -155,6 +165,7 @@
             </div>
           </div>
 
+          <form class="user">
           <div class="row">
             <button type="button" class="btn btn-success btn-lg btn-block btn-user" onclick="beginSim()">开始仿真！</button>
           </div>
@@ -162,7 +173,11 @@
           <div class="row">
             <button type="button" class="btn btn-primary btn-lg btn-block btn-user" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</button>
           </div>
-
+          <hr/>
+          <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-user" id="saveBtn" onclick="showSaveModal()">保存当前参数</button>
+          </div>
+          </form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -205,6 +220,8 @@
       </div>
     </div>
   </div>
+
+  <div th:replace="~{fragments/save-modal :: saveModal}"></div>
 
   <!-- Bootstrap core JavaScript-->
   <script th:src="@{vendor/jquery/jquery.min.js}"></script>

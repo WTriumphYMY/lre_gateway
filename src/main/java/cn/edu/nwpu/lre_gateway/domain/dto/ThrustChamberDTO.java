@@ -1,4 +1,4 @@
-package cn.edu.nwpu.lre_gateway.dto;
+package cn.edu.nwpu.lre_gateway.domain.dto;
 
 /**
  * @ClassName ThrustChamberDTO
@@ -8,14 +8,23 @@ package cn.edu.nwpu.lre_gateway.dto;
  * @Description: 推力室数据传输类
  */
 public class ThrustChamberDTO {
+    private String componentName;
     private String thrustChamberV;
     private String thrustChamberTauc;
     private String thrustChamberK;
-    private String thrustChamberArea;
+    private String thrustChamberD;
     private String thrustChamberPa;
     private String thrustChamberEps;
     private String globalParasTime;
     private String globalParasStep;
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
 
     public String getThrustChamberV() {
         return thrustChamberV;
@@ -41,12 +50,12 @@ public class ThrustChamberDTO {
         this.thrustChamberK = thrustChamberK;
     }
 
-    public String getThrustChamberArea() {
-        return thrustChamberArea;
+    public String getThrustChamberD() {
+        return thrustChamberD;
     }
 
-    public void setThrustChamberArea(String thrustChamberArea) {
-        this.thrustChamberArea = thrustChamberArea;
+    public void setThrustChamberD(String thrustChamberD) {
+        this.thrustChamberD = thrustChamberD;
     }
 
     public String getThrustChamberPa() {

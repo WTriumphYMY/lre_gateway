@@ -1,4 +1,4 @@
-package cn.edu.nwpu.lre_gateway.dto;
+package cn.edu.nwpu.lre_gateway.domain.dto;
 
 /**
  * @ClassName ConstantSystemDTO
@@ -57,7 +57,7 @@ public class ConstantSystemDTO {
     private String thrustChamberV;
     private String thrustChamberTauc;
     private String thrustChamberK;
-    private String thrustChamberArea;
+    private String thrustChamberD;
     private String thrustChamberPa;
     private String thrustChamberEps;
     private String globalParasTime;
@@ -463,12 +463,12 @@ public class ConstantSystemDTO {
         this.thrustChamberK = thrustChamberK;
     }
 
-    public String getThrustChamberArea() {
-        return thrustChamberArea;
+    public String getThrustChamberD() {
+        return thrustChamberD;
     }
 
-    public void setThrustChamberArea(String thrustChamberArea) {
-        this.thrustChamberArea = thrustChamberArea;
+    public void setThrustChamberD(String thrustChamberD) {
+        this.thrustChamberD = thrustChamberD;
     }
 
     public String getThrustChamberPa() {

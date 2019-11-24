@@ -69,6 +69,15 @@
                   <div class="card-body">
                     <form id="reduceForm">
                       <div class="form-group row">
+                        <label for="reduceName" class="col-sm-2 col-form-label">选择已有减压阀</label>
+                        <div class="col-sm-10">
+                          <select id="reduceName" name="reduceName" class="form-control">
+                            <option selected>---选择减压阀---</option>
+                            <option th:each="reduceValve:${reduceValves}" th:value="${reduceValve.componentName}" th:text="${reduceValve.componentName}"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="reduceC" class="col-sm-2 col-form-label">阻尼系数</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="reduceC" name="reduceC" placeholder="5010" value="5010">
@@ -187,6 +196,7 @@
             </div>
           </div>
 
+          <form class="user">
           <div class="row">
             <button type="button" class="btn btn-success btn-lg btn-block btn-user" onclick="beginSim()">开始仿真！</button>
           </div>
@@ -194,7 +204,11 @@
           <div class="row">
             <button type="button" class="btn btn-primary btn-lg btn-block btn-user" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</button>
           </div>
-
+          <hr/>
+          <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-user" id="saveBtn" onclick="showSaveModal()">保存当前参数</button>
+          </div>
+          </form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -241,6 +255,9 @@
       </div>
     </div>
   </div>
+
+  <div th:replace="~{fragments/save-modal :: saveModal}"></div>
+
   <!-- Bootstrap core JavaScript-->
   <script th:src="@{vendor/jquery/jquery.min.js}"></script>
   <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>

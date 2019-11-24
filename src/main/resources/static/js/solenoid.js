@@ -23,6 +23,11 @@ $(function () {
     $('#vBtn').click(function(){
         drawChart(result.t, result.v, '阀芯速度');
     });
+
+    $('#solenoidName').change(function () {
+        var name = $(this).children('option:selected').val();
+        setSolenoidValue(name);
+    });
 });
 
 function beginSim() {
@@ -46,6 +51,41 @@ function showResult(){
     $('#resultModal').modal('toggle');
     drawChart(result.t, result.p, '压强');
 };
+
+function showSaveModal() {
+    $('#saveModal').modal('toggle');
+}
+
+function saveData() {
+    var fuelSolenoidForm = $('#fuelSolenoidForm').serializeJson();
+    var fuelOrificeForm = $('#fuelOrificeForm').serializeJson();
+    var saveNameForm = $('#saveNameForm').serializeJson();
+    var data = {};
+    $.extend(data, fuelSolenoidForm,fuelOrificeForm,saveNameForm);
+
+    $.post(contextRoot+"saveSolenoid",data, function(){
+        alert("保存成功");
+    });
+}
+
+function setSolenoidValue(name) {
+
+    $.post(contextRoot+"getSolenoid",{solenoidName:name}, function(rtn){
+        $('#fuelSolenoidR').val(rtn.fuelSolenoidR);
+        $('#fuelSolenoidN').val(rtn.fuelSolenoidN);
+        $('#fuelSolenoidU').val(rtn.fuelSolenoidU);
+        $('#fuelSolenoidSigma').val(rtn.fuelSolenoidSigma);
+        $('#fuelSolenoidSm').val(rtn.fuelSolenoidSm);
+        $('#fuelSolenoidK').val(rtn.fuelSolenoidK);
+        $('#fuelSolenoidM').val(rtn.fuelSolenoidM);
+        $('#fuelSolenoidF').val(rtn.fuelSolenoidF);
+        $('#fuelSolenoidD').val(rtn.fuelSolenoidD);
+        $('#fuelSolenoidXstop').val(rtn.fuelSolenoidXstop);
+        $('#fuelLiquidOrificeD').val(rtn.fuelLiquidOrificeD);
+        $('#fuelLiquidOrificePc').val(rtn.fuelLiquidOrificePc);
+    });
+}
+
 
 function drawChart(xdata, ydata, yname){
     var chart = Highcharts.chart('container', {

@@ -9,26 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @ClassName LRESimClient
+ * @InterfaceName LreComponentSimClient
  * @Author: wkx
- * @Date: 2019/7/24 13:15
+ * @Date: 2019/10/23 18:44
  * @Version: v1.0
- * @Description: 调用液发仿真API的feign接口
+ * @Description:
  */
-@FeignClient(value = "lre-simulation")
-public interface LRESimClient {
-
-    @PostMapping("constDualSystemSim")
-    Map<String, List> getDualSystemSimResult(ConstantSystemDTO constantSystemDTO);
-
-    @PostMapping("constDualSystemSim")
-    Map<String, List<Double>> constDualSystemSim(ConstantSystemDTO constantSystemDTO);
-
+@FeignClient(value = "lre-component")
+public interface LreComponentSimClient {
     @PostMapping("gasBottleSim")
     Map<String, List<Double>> gasBottleSim(ConstantSystemDTO constantSystemDTO);
-
-    @PostMapping("/savaGasBottle")
-    void saveGasBottle(ConstantSystemDTO constantSystemDTO);
 
     @PostMapping("reduceValveSim")
     Map<String, List<Double>> reduceValveSim(ConstantSystemDTO constantSystemDTO);

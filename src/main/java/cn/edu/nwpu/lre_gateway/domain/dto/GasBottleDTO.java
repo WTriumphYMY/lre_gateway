@@ -1,4 +1,4 @@
-package cn.edu.nwpu.lre_gateway.dto;
+package cn.edu.nwpu.lre_gateway.domain.dto;
 
 /**
  * @ClassName GasBottleDTO
@@ -8,11 +8,22 @@ package cn.edu.nwpu.lre_gateway.dto;
  * @Description: 气瓶仿真数据传输类
  */
 public class GasBottleDTO {
+    private String componentName;
     private String bottleVol;
     private String bottleCA;
     private String bottlePressure;
     private String bottleTemperature;
     private String bottleGas;
+
+    private String pe;
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
 
     public String getBottleVol() {
         return bottleVol;
@@ -52,5 +63,13 @@ public class GasBottleDTO {
 
     public void setBottleGas(String bottleGas) {
         this.bottleGas = bottleGas;
+    }
+
+    public String getPe() {
+        return pe;
+    }
+
+    public void setPe(String pe) {
+        this.pe = pe;
     }
 }

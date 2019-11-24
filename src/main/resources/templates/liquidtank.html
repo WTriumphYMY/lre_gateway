@@ -70,6 +70,15 @@
                   <div class="card-body">
                     <form id="fuelTankForm">
                       <div class="form-group row">
+                        <label for="liquidTankName" class="col-sm-2 col-form-label">选择已有贮箱</label>
+                        <div class="col-sm-10">
+                          <select id="liquidTankName" name="liquidTankName" class="form-control">
+                            <option selected>---选择贮箱---</option>
+                            <option th:each="liquidTank:${liquidTanks}" th:value="${liquidTank.componentName}" th:text="${liquidTank.componentName}"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="fuelTankCA" class="col-sm-2 col-form-label">流量系数</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="fuelTankCA" name="fuelTankCA" placeholder="2.663e-5" value="2.663e-5">
@@ -109,9 +118,9 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="liquidTankFuel" class="col-sm-2 col-form-label">推进剂</label>
+                        <label for="fuelTankFuel" class="col-sm-2 col-form-label">推进剂</label>
                         <div class="col-sm-10">
-                          <select id="liquidTankFuel" name="fuelTankFuel" class="form-control">
+                          <select id="fuelTankFuel" name="fuelTankFuel" class="form-control">
                             <option selected value="MMH">甲基肼(MMH)</option>
                             <option value="LH2">液氢(LH2)</option>
                             <option value="LO2">液氧(LO2)</option>
@@ -156,7 +165,7 @@
               </div>
             </div>
           </div>
-
+          <form class="user">
           <div class="row">
             <button type="button" class="btn btn-success btn-lg btn-block btn-user" onclick="beginSim()">开始仿真！</button>
           </div>
@@ -164,7 +173,10 @@
           <div class="row">
             <button type="button" class="btn btn-primary btn-lg btn-block btn-user" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</button>
           </div>
-
+          <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-user" id="saveBtn" onclick="showSaveModal()">保存当前参数</button>
+          </div>
+          </form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -207,6 +219,8 @@
       </div>
     </div>
   </div>
+
+  <div th:replace="~{fragments/save-modal :: saveModal}"></div>
 
   <!-- Bootstrap core JavaScript-->
   <script th:src="@{vendor/jquery/jquery.min.js}"></script>

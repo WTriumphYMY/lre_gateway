@@ -1,4 +1,4 @@
-package cn.edu.nwpu.lre_gateway.dto;
+package cn.edu.nwpu.lre_gateway.domain.dto;
 
 /**
  * @ClassName SolenoidDTO
@@ -8,6 +8,8 @@ package cn.edu.nwpu.lre_gateway.dto;
  * @Description: 电磁阀数据传输类
  */
 public class SolenoidDTO {
+
+    private String componentName;
     private String fuelSolenoidR;
     private String fuelSolenoidN;
     private String fuelSolenoidU;
@@ -18,6 +20,16 @@ public class SolenoidDTO {
     private String fuelSolenoidF;
     private String fuelSolenoidD;
     private String fuelSolenoidXstop;
+    private String fuelLiquidOrificeD;
+    private String fuelLiquidOrificePc;
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
 
     public String getFuelSolenoidR() {
         return fuelSolenoidR;
@@ -97,5 +109,21 @@ public class SolenoidDTO {
 
     public void setFuelSolenoidXstop(String fuelSolenoidXstop) {
         this.fuelSolenoidXstop = fuelSolenoidXstop;
+    }
+
+    public String getFuelLiquidOrificeD() {
+        return fuelLiquidOrificeD;
+    }
+
+    public void setFuelLiquidOrificeD(String fuelLiquidOrificeD) {
+        this.fuelLiquidOrificeD = fuelLiquidOrificeD;
+    }
+
+    public String getFuelLiquidOrificePc() {
+        return fuelLiquidOrificePc;
+    }
+
+    public void setFuelLiquidOrificePc(String fuelLiquidOrificePc) {
+        this.fuelLiquidOrificePc = fuelLiquidOrificePc;
     }
 }

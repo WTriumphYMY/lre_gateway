@@ -1,4 +1,4 @@
-package cn.edu.nwpu.lre_gateway.dto;
+package cn.edu.nwpu.lre_gateway.domain.dto;
 
 /**
  * @ClassName ReduceValveDTO
@@ -8,6 +8,7 @@ package cn.edu.nwpu.lre_gateway.dto;
  * @Description: 减压阀数据传输类
  */
 public class ReduceValveDTO {
+    private String componentName;
     private String reduceC;
     private String reduceK;
     private String reduceF;
@@ -17,6 +18,14 @@ public class ReduceValveDTO {
     private String reduceV1;
     private String reduceV2;
     private String reduceXstop;
+
+    public String getComponentName() {
+        return componentName;
+    }
+
+    public void setComponentName(String componentName) {
+        this.componentName = componentName;
+    }
 
     public String getReduceC() {
         return reduceC;

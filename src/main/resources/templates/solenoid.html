@@ -70,6 +70,15 @@
                   <div class="card-body">
                     <form id="fuelSolenoidForm">
                       <div class="form-group row">
+                        <label for="solenoidName" class="col-sm-2 col-form-label">选择已有电磁阀</label>
+                        <div class="col-sm-10">
+                          <select id="solenoidName" name="solenoidName" class="form-control">
+                            <option selected>---选择电磁阀---</option>
+                            <option th:each="solenoidValve:${solenoidValves}" th:value="${solenoidValve.componentName}" th:text="${solenoidValve.componentName}"></option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="fuelSolenoidR" class="col-sm-2 col-form-label">线圈电阻</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="fuelSolenoidR" name="fuelSolenoidR" placeholder="23.3Ω" value="23.3">
@@ -165,7 +174,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
                 <a href="#fuelLiquidOrifice" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="fuelLiquidOrifice">
-                  <h6 class="m-0 font-weight-bold text-primary">燃料路简单液体节流孔<img src="img/liquidOrifice.bmp" class="rounded"></h6>
+                  <h6 class="m-0 font-weight-bold text-primary">简单液体节流孔<img src="img/liquidOrifice.bmp" class="rounded"></h6>
                 </a>
 
                 <div class="collapse show" id="fuelLiquidOrifice">
@@ -219,6 +228,7 @@
               </div>
             </div>
           </div>
+          <form class="user">
           <div class="row">
             <button type="button" class="btn btn-success btn-lg btn-block btn-user" onclick="beginSim()">开始仿真！</button>
           </div>
@@ -226,7 +236,11 @@
           <div class="row">
             <button type="button" class="btn btn-primary btn-lg btn-block btn-user" disabled="disabled" id="resultBtn" onclick="showResult()">查看结果</button>
           </div>
-
+          <hr/>
+          <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-user" id="saveBtn" onclick="showSaveModal()">保存当前参数</button>
+          </div>
+          </form>
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -271,6 +285,8 @@
       </div>
     </div>
   </div>
+
+  <div th:replace="~{fragments/save-modal :: saveModal}"></div>
 
   <!-- Bootstrap core JavaScript-->
   <script th:src="@{vendor/jquery/jquery.min.js}"></script>

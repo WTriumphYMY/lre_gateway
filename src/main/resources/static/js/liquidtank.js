@@ -15,6 +15,11 @@ $(function () {
     $('#rhoBtn').click(function(){
         drawChart(result.t, result.rho, '气体密度');
     });
+
+    $('#liquidTankName').change(function () {
+        var name = $(this).children('option:selected').val();
+        setTankValue(name);
+    });
 });
 
 function beginSim() {
@@ -38,6 +43,29 @@ function showResult(){
     drawChart(result.t, result.p, '压强');
 };
 
+function showSaveModal() {
+    $('#saveModal').modal('toggle');
+}
+
+function saveData() {
+    var fuelTankForm = $('#fuelTankForm').serializeJson();
+    var saveNameForm = $('#saveNameForm').serializeJson();
+    var data = {};
+    $.extend(data, fuelTankForm,saveNameForm);
+
+    $.post(contextRoot+"saveLiquidTank",data, function(){
+        alert("保存成功");
+    });
+}
+
+function setTankValue(name) {
+
+    $.post(contextRoot+"getLiquidTank",{liquidTankName:name}, function(rtn){
+        $('#fuelTankCA').val(rtn.fuelTankCA);
+        $('#fuelTankV0').val(rtn.fuelTankV0);
+        $('#fuelTankFuel').val(rtn.fuelTankFuel);
+    });
+}
 function drawChart(xdata, ydata, yname){
     var chart = Highcharts.chart('container', {
         title: {

@@ -15,6 +15,11 @@ $(function () {
     $('#rBtn').click(function(){
         drawChart(result.t, result.r, '混合比');
     });
+
+    $('#thrustChamberName').change(function () {
+        var name = $(this).children('option:selected').val();
+        setThrustValue(name);
+    });
 });
 
 function beginSim() {
@@ -37,6 +42,35 @@ function showResult(){
     $('#resultModal').modal('toggle');
     drawChart(result.t, result.p, '压强');
 };
+
+function showSaveModal() {
+    $('#saveModal').modal('toggle');
+}
+
+function saveData() {
+    var thrustForm = $('#thrustForm').serializeJson();
+    var saveNameForm = $('#saveNameForm').serializeJson();
+    var data = {};
+    $.extend(data, thrustForm,saveNameForm);
+
+    $.post(contextRoot+"saveThrustChamber",data, function(){
+        alert("保存成功");
+    });
+}
+
+function setThrustValue(name) {
+
+    $.post(contextRoot+"getThrustChamber",{thrustChamberName:name}, function(rtn){
+        $('#thrustChamberV').val(rtn.thrustChamberV);
+        $('#thrustChamberTauc').val(rtn.thrustChamberTauc);
+        $('#thrustChamberK').val(rtn.thrustChamberK);
+        $('#thrustChamberArea').val(rtn.thrustChamberArea);
+        $('#thrustChamberPa').val(rtn.thrustChamberPa);
+        $('#thrustChamberEps').val(rtn.thrustChamberEps);
+
+    });
+}
+
 
 function drawChart(xdata, ydata, yname){
     var chart = Highcharts.chart('container', {
